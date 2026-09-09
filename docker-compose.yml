@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  email-agent:
+    build: .
+    container_name: email-agent
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Persist uploaded files outside the container
+      - ./uploads:/app/uploads
+    restart: unless-stopped
