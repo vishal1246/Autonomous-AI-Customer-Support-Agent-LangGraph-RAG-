@@ -5,7 +5,7 @@ tests/test_email_routes.py — Tests for /process-email, /resume-email, /review-
 import pytest
 from fastapi.testclient import TestClient
 
-from app.main import app
+from backend.main import app
 
 client = TestClient(app)
 

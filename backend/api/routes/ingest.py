@@ -16,10 +16,10 @@ from typing import List
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
-from app.core.config import ALLOWED_EXTENSIONS, UPLOAD_DIR_PATH
-from app.db.mongo import ingest_log_col
-from app.knowledge.ingest import ingest_files, ingest_urls
-from app.schemas.ingest import IngestResponse, IngestURLsRequest, IngestionRecord
+from backend.core.config import ALLOWED_EXTENSIONS, UPLOAD_DIR_PATH
+from backend.db.mongo import ingest_log_col
+from backend.knowledge.ingest import ingest_files, ingest_urls
+from backend.schemas.ingest import IngestResponse, IngestURLsRequest, IngestionRecord
 
 router = APIRouter(tags=["Knowledge Base"])
 

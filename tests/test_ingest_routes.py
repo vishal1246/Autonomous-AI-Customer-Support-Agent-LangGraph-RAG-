@@ -5,7 +5,7 @@ tests/test_ingest_routes.py — Tests for /ingest/urls, /ingest/files, /ingest/h
 import pytest
 from fastapi.testclient import TestClient
 
-from app.main import app
+from backend.main import app
 
 client = TestClient(app)
 

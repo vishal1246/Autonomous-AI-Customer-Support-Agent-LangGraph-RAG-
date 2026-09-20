@@ -24,12 +24,6 @@ param mongoUri string
 // ── Shared naming convention ─────────────────────────────────────────────────
 var prefix = 'email-agent-${environmentName}'
 
-// NOTE: Azure Static Web Apps is NOT deployed via Bicep.
-// It must be created manually via Azure Portal → Static Web Apps → Create,
-// then linked to your GitHub repo. Azure will generate a deployment token
-// which you add as AZURE_STATIC_WEB_APPS_API_TOKEN in GitHub Secrets.
-// The frontend-deploy.yml workflow handles all subsequent deployments.
-
 // ── Azure Container Registry ─────────────────────────────────────────────────
 module acr 'modules/container-registry.bicep' = {
   name: 'acr-deploy'

@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────┐     ┌──────────────────────────────┐
-│  Azure Static Web Apps  │────▶│  Azure Container Apps         │
+│  Vercel                 │────▶│  Azure Container Apps         │
 │  (React/Vite Frontend)  │     │  (FastAPI Backend - Docker)   │
 └─────────────────────────┘     └──────────────────────────────┘
                                            │
@@ -44,7 +44,7 @@ Go to **GitHub → Repository → Settings → Secrets and variables → Actions
 | `ACR_LOGIN_SERVER` | ACR URL (e.g. `emailagentacr.azurecr.io`) | Output of `setup-azure.sh` |
 | `ACR_USERNAME` | ACR admin username | Output of `setup-azure.sh` |
 | `ACR_PASSWORD` | ACR admin password | Output of `setup-azure.sh` |
-| `AZURE_STATIC_WEB_APPS_API_TOKEN` | SWA deployment token | Azure Portal → Static Web App → Manage deployment token |
+
 | `VITE_API_URL` | Backend URL after first deploy | Azure Portal → Container App → Application URL |
 | `VITE_JIRA_URL` | Your Jira instance URL | `https://vishalaggarwal372.atlassian.net/` |
 
@@ -56,10 +56,11 @@ Go to **GitHub → Repository → Settings → Secrets and variables → Actions
 - **Trigger**: Push to `main` when `app/**`, `requirements.txt`, or `Dockerfile` changes
 - **Steps**: Checkout → Azure login → Build Docker image → Push to ACR → Deploy to Container Apps
 
-### Frontend ([`.github/workflows/frontend-deploy.yml`](../.github/workflows/frontend-deploy.yml))
-- **Trigger**: Push to `main` when `frontend/**` changes; also PR preview environments
-- **Steps**: Checkout → Node setup → `npm ci` → `npm run build` → Deploy to Static Web Apps
-- **Bonus**: Pull Requests automatically get a **preview URL** for review
+### Frontend (Vercel)
+- Vercel automatically deploys your frontend on every push to `main` and creates preview URLs for pull requests.
+- Go to [Vercel](https://vercel.com) and import your GitHub repository.
+- Ensure the **Framework Preset** is set to `Vite`.
+- Add the `VITE_API_URL` and `VITE_JIRA_URL` environment variables in the Vercel project settings.
 
 ---
 
@@ -74,7 +75,6 @@ infra/
 └── modules/
     ├── container-app.bicep      # FastAPI backend + autoscaling + health probes
     ├── container-registry.bicep # Docker image storage
-    ├── static-web-app.bicep     # Frontend hosting
     └── storage.bicep            # Blob storage for file uploads
 ```
 
@@ -123,7 +123,7 @@ npm run dev            # Runs on http://localhost:5173
 |---|---|---|
 | Azure Container Apps | Consumption (1 min replica) | ~$5–15 |
 | Azure Container Registry | Basic | ~$5 |
-| Azure Static Web Apps | Free | $0 |
+| Vercel (Frontend) | Hobby | $0 |
 | Azure Blob Storage | Standard LRS | ~$1–2 |
 | Azure Key Vault | Standard | ~$0.03/10K ops |
 | MongoDB Atlas | Existing | No change |

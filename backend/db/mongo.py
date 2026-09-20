@@ -6,13 +6,13 @@ All modules import collection helpers from here instead of creating
 their own MongoClient instances.
 
 Usage:
-    from app.db.mongo import review_queue_col, ingest_log_col
+    from backend.db.mongo import review_queue_col, ingest_log_col
 """
 
 from pymongo import MongoClient, DESCENDING
 from pymongo.collection import Collection
 
-from app.core.config import (
+from backend.core.config import (
     get_mongo_uri,
     DB_NAME,
     REVIEW_QUEUE_COLLECTION,

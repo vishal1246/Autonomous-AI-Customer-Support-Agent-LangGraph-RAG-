@@ -7,12 +7,12 @@ This file ONLY does three things:
   3. Mount the API router and add health/root endpoints
 
 All business logic lives elsewhere:
-  app/agent/     — the AI email agent (LangGraph)
-  app/knowledge/ — document ingestion and retrieval
-  app/api/       — HTTP route handlers
-  app/schemas/   — Pydantic request/response schemas
-  app/core/      — configuration and logging
-  app/db/        — database clients
+backend/agent/     — the AI email agent (LangGraph)
+  backend/knowledge/ — document ingestion and retrieval
+  backend/api/       — HTTP route handlers
+  backend/schemas/   — Pydantic request/response schemas
+  backend/core/      — configuration and logging
+  backend/db/        — database clients
 """
 
 from dotenv import load_dotenv
@@ -23,8 +23,8 @@ load_dotenv()
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.router import api_router
-from app.core.logging import configure_logging, get_logger
+from backend.api.router import api_router
+from backend.core.logging import configure_logging, get_logger
 
 configure_logging()
 logger = get_logger(__name__)

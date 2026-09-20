@@ -16,7 +16,7 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from app.knowledge.vectorstore import get_vectorstore
+from backend.knowledge.vectorstore import get_vectorstore
 
 # Split large documents into 1000-char chunks with 200-char overlap
 # so context isn't lost at chunk boundaries

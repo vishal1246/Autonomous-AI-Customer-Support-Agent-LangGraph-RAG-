@@ -9,7 +9,7 @@ Called by: app/agent/nodes.py (search_documentation node)
 
 from langchain.tools import tool
 
-from app.knowledge.vectorstore import get_vectorstore
+from backend.knowledge.vectorstore import get_vectorstore
 
 
 @tool

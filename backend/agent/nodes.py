@@ -20,9 +20,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import END
 from langgraph.types import Command, interrupt
 
-from app.agent.state import EmailAgentState, EmailClassification
-from app.core.config import get_google_api_key
-from app.knowledge.retriever import retrieve_information
+from backend.agent.state import EmailAgentState, EmailClassification
+from backend.core.config import get_google_api_key
+from backend.knowledge.retriever import retrieve_information
 
 
 # ---------------------------------------------------------------------------

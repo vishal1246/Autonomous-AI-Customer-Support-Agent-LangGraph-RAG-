@@ -16,9 +16,9 @@ from fastapi import APIRouter, HTTPException
 from langgraph.types import Command
 from pymongo.errors import DuplicateKeyError
 
-from app.agent.graph import email_agent_graph
-from app.db.mongo import review_queue_col
-from app.schemas.email import EmailRequest, EmailResponse, ResumeRequest, ReviewItemSchema
+from backend.agent.graph import email_agent_graph
+from backend.db.mongo import review_queue_col
+from backend.schemas.email import EmailRequest, EmailResponse, ResumeRequest, ReviewItemSchema
 
 router = APIRouter(tags=["Email Agent"])
 

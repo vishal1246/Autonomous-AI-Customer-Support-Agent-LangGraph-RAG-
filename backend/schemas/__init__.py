@@ -6,8 +6,8 @@ Domain-specific schema modules:
   ingest.py — IngestURLsRequest, IngestResponse, IngestionRecord
 """
 
-from app.schemas.email import EmailRequest, EmailResponse, ResumeRequest, ReviewItemSchema
-from app.schemas.ingest import IngestURLsRequest, IngestResponse, IngestionRecord
+from backend.schemas.email import EmailRequest, EmailResponse, ResumeRequest, ReviewItemSchema
+from backend.schemas.ingest import IngestURLsRequest, IngestResponse, IngestionRecord
 
 __all__ = [
     "EmailRequest",

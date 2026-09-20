@@ -5,7 +5,7 @@ Sets up structured logging for the entire application.
 All modules should use `get_logger(__name__)` instead of bare `print()`.
 
 Usage:
-    from app.core.logging import get_logger
+    from backend.core.logging import get_logger
     logger = get_logger(__name__)
     logger.info("Processing email", extra={"email_id": "EMAIL-001"})
 """

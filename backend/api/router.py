@@ -11,8 +11,8 @@ To add a new group of routes:
 
 from fastapi import APIRouter
 
-from app.api.routes.email import router as email_router
-from app.api.routes.ingest import router as ingest_router
+from backend.api.routes.email import router as email_router
+from backend.api.routes.ingest import router as ingest_router
 
 api_router = APIRouter()
 api_router.include_router(email_router)

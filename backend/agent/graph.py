@@ -11,8 +11,8 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import RetryPolicy
 
-from app.agent.state import EmailAgentState
-from app.agent.nodes import (
+from backend.agent.state import EmailAgentState
+from backend.agent.nodes import (
     bug_tracking,
     classify_intent,
     draft_response,

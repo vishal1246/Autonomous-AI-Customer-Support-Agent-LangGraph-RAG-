@@ -14,7 +14,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from pymongo import MongoClient
 
-from app.core.config import (
+from backend.core.config import (
     get_google_api_key,
     get_mongo_uri,
     DB_NAME,
