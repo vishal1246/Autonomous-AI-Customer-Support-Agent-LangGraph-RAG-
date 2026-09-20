@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "prod"
+    },
+    "location": {
+      "value": "centralindia"
+    },
+    "googleApiKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/email-agent-rg/providers/Microsoft.KeyVault/vaults/email-agent-kv"
+        },
+        "secretName": "google-api-key"
+      }
+    },
+    "mongoUri": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/email-agent-rg/providers/Microsoft.KeyVault/vaults/email-agent-kv"
+        },
+        "secretName": "mongo-uri"
+      }
+    }
+  }
+}

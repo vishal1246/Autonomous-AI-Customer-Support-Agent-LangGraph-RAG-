@@ -1,0 +1,77 @@
+.process-email-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.process-email-main { display: flex; flex-direction: column; gap: var(--space-6); }
+
+/* Draft text */
+.draft-response {
+  background: var(--color-sidebar);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+}
+
+/* Stepper */
+.stepper { display: flex; flex-direction: column; gap: 0; }
+.stepper-item { display: flex; gap: var(--space-3); align-items: flex-start; }
+.stepper-connector-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.stepper-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-normal), color var(--transition-normal);
+}
+.stepper-circle.done    { background: var(--color-success-bg); color: var(--color-success); }
+.stepper-circle.current { background: var(--color-accent-light); color: var(--color-accent); }
+.stepper-circle.pending { background: var(--color-sidebar); color: var(--color-text-tertiary); }
+
+.stepper-line {
+  width: 2px;
+  height: 24px;
+  background: var(--color-border);
+  margin: 2px 0;
+  transition: background var(--transition-normal);
+}
+.stepper-line.done { background: var(--color-success); }
+
+.stepper-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  padding: 5px 0;
+  line-height: 1.4;
+  transition: color var(--transition-normal);
+}
+.stepper-label.done    { color: var(--color-success); }
+.stepper-label.current { color: var(--color-accent); font-weight: 500; }
+.stepper-label.pending { color: var(--color-text-tertiary); }
+
+.stepper-num {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  min-width: 18px;
+}
+
+/* Spin animation */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin-icon { animation: spin 0.8s linear infinite; }
+
+@media (max-width: 900px) {
+  .process-email-layout { grid-template-columns: 1fr; }
+  .process-email-stepper { order: -1; }
+}

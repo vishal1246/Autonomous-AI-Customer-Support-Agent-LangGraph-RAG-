@@ -1,0 +1,35 @@
+.jira-card-body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.jira-logo { flex-shrink: 0; }
+
+.jira-info { flex: 1; }
+
+.jira-title {
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+.jira-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+.jira-url {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  margin-top: var(--space-1);
+  display: block;
+  text-decoration: none;
+}
+.jira-url:hover { text-decoration: underline; }
+
+.ticket-id {
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+}
