@@ -33,7 +33,7 @@ module acr 'modules/container-registry.bicep' = {
   name: 'acr-deploy'
   params: {
     location: location
-    registryName: replace('${prefix}acr', '-', '') // ACR names cannot contain hyphens
+    registryName: 'emailagentacr' // Must match the name used in setup-azure.sh
   }
 }
 
