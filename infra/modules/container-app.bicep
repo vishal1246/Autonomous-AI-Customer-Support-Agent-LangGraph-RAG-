@@ -26,8 +26,8 @@ param mongoUri string
 @secure()
 param acrPassword string
 
-@description('Docker image tag to deploy')
-param imageTag string = 'latest'
+@description('Docker image to deploy (defaults to a quickstart image to avoid chicken-and-egg on first run)')
+param imageName string = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
 
 // ── Log Analytics Workspace (required by Container Apps Environment) ──────────
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
@@ -72,7 +72,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
       registries: [
         {
           server: acrLoginServer
-          username: ''           // Managed Identity is preferred; set via CLI if using admin creds
+          username: split(acrLoginServer, '.')[0] // The ACR admin username is identical to the ACR name
           passwordSecretRef: 'acr-password'
         }
       ]
@@ -95,7 +95,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
       containers: [
         {
           name: 'email-agent'
-          image: '${acrLoginServer}/email-agent:${imageTag}'
+          image: imageName
           resources: {
             cpu: json('0.5')
             memory: '1Gi'
