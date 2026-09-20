@@ -14,7 +14,7 @@ on:
 env:
   REGISTRY: ${{ secrets.ACR_LOGIN_SERVER }}        # e.g. emailagentacr.azurecr.io
   IMAGE_NAME: email-agent
-  CONTAINER_APP_NAME: email-agent-backend
+  CONTAINER_APP_NAME: email-agent-prod-backend
   RESOURCE_GROUP: email-agent-rg
 
 jobs:
