@@ -22,6 +22,10 @@ param googleApiKey string
 @secure()
 param mongoUri string
 
+@description('ACR Admin Password')
+@secure()
+param acrPassword string
+
 @description('Docker image tag to deploy')
 param imageTag string = 'latest'
 
@@ -83,7 +87,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
         }
         {
           name: 'acr-password'
-          value: ''              // Populated via --parameters or Key Vault reference at deploy time
+          value: acrPassword
         }
       ]
     }

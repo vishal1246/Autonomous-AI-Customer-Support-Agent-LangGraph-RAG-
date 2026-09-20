@@ -21,6 +21,10 @@ param googleApiKey string
 @secure()
 param mongoUri string
 
+@description('ACR Admin Password (stored as a secret)')
+@secure()
+param acrPassword string
+
 // ── Shared naming convention ─────────────────────────────────────────────────
 var prefix = 'email-agent-${environmentName}'
 
@@ -43,6 +47,7 @@ module backend 'modules/container-app.bicep' = {
     acrLoginServer: acr.outputs.loginServer
     googleApiKey: googleApiKey
     mongoUri: mongoUri
+    acrPassword: acrPassword
   }
 }
 

@@ -23,6 +23,14 @@
         },
         "secretName": "mongo-uri"
       }
+    },
+    "acrPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/d96f4ce7-acf4-4a2d-b44a-23161086eac1/resourceGroups/email-agent-rg/providers/Microsoft.KeyVault/vaults/eagent-kv-cd062c"
+        },
+        "secretName": "acr-password"
+      }
     }
   }
 }
